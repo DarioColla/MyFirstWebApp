@@ -1,0 +1,33 @@
+﻿@page
+@model MyFirstRazorWebApp.Pages.LocatiesModel
+@{
+    var locaties = MyFirstRazorWebApp.Data.Databank.locaties;
+    var rowId = 0;
+}
+
+<div>
+    <h1>Locaties</h1>
+    <a asp-page="NieuweLocatie">Nieuwe locatie</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">LocatieId</th>
+            <th scope="col">KlantId</th>
+            <th scope="col">KlantNaam</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var locatie in locaties)
+        {
+            rowId++;
+            <tr>
+                <th>@rowId</th>
+                <td>@locatie.PostCode</td>
+                <td>@locatie.Gemeente</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

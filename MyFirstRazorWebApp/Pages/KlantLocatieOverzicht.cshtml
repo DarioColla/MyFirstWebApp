@@ -1,0 +1,32 @@
+﻿@page
+@model MyFirstRazorWebApp.Pages.KlantLocatieOverzichtModel
+@{
+    var klantLocatie = MyFirstRazorWebApp.Data.Databank.klantLocatieOverzicht;
+
+}
+<div>
+    <h1>Klant locatie overzicht</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">KlantNaam</th>
+                <th scope="col">Locatie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var klant in klantLocatie )
+            {
+                <tr>
+                    <td>@klant.naam</td>
+                    <td>@klant.locatie</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+
+
+</div>

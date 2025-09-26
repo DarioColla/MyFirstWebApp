@@ -1,0 +1,19 @@
+﻿@page
+@using MyFirstRazorWebApp.Data
+@model MyFirstRazorWebApp.Pages.LocatieDetailsModel
+@{
+    var id = Model.LocatieId;
+    var row = Databank.locaties.Where(x => x.LocatieID == id).FirstOrDefault();
+    var postCode = (row != null) ? row.PostCode : "";
+    var gemeente = (row != null) ? row.Gemeente : "";
+}
+
+<div>
+    <h1>Locatie details</h1>
+    <br />
+    Id: @id
+    <br />
+    Postcode: @postCode
+    <br />
+    Gemeente: @gemeente
+</div>
