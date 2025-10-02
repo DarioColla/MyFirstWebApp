@@ -17,8 +17,14 @@
             locaties.Add(new Locatie(2, "3600", "Genk"));
 
             klantLocatieOverzicht = new List<KlantLocatie>();
-            klantLocatieOverzicht.Add(new KlantLocatie("klant A", "Hasselt"));
-            klantLocatieOverzicht.Add(new KlantLocatie("klant B", "Genk"));
+
+            foreach (var Klant in Klanten)
+            {
+                int locatieId = Klant.LocatieId;
+                string naam = Klant.KlantNaam;
+                string locatie = locaties.Where(x => x.LocatieID == locatieId).Select(x => x.Gemeente).First();
+                klantLocatieOverzicht.Add(new KlantLocatie(naam, locatie));
+            }
         }
 
         public static void AddLocation(string postcode, string city)
